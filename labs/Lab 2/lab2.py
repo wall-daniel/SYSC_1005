@@ -7,7 +7,7 @@ LITRES_PER_GALLON = 4.54609
 KMS_PER_MILE = 1.60934
 
 mpg = 32
-fuel_consumption_metric = mpg / LITRES_PER_GALLON * KMS_PER_MILE
+fuel_consumption_metric = 1 / (mpg / LITRES_PER_GALLON * KMS_PER_MILE)
 
 # Calculate the amount of a certain investment
 principle = 1500
