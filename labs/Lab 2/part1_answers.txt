@@ -1,0 +1,27 @@
+Exercise 1:
+
+a - Variable degrees_c appears when it runs the line
+b - global frame
+c - degrees_c is bound to the object/float 20.0
+d - degrees_f appears once the code runs that line
+e - contains a pointer to an object/float 68.0
+
+Exercise 2:
+
+a - There are 4 variables in total
+b - The arrows represent that the variable is bound to the object or value
+
+Exercise 3:
+
+-nothing
+
+Exercise 4:
+
+a - 2
+b - 3
+c - 40
+d - 4
+
+Exercise 5:
+
+x - 3
