@@ -1,0 +1,51 @@
+Exercise 1
+------------------------------------------
+Step 1:
+1 - global frame
+2 - a function
+3 - area_of_dsk
+4 - when the right side of area var is calculated
+5 - float, is a parameter of the function called
+6 - A red arrow with a float 78.53...
+7 - After the function is done running
+8 - after the right side is evaluated
+9 - float, 78.5398
+---------------------------------------------
+Step 2:
+1 - Returns the same object because it gets evaluated the same
+
+====================================
+
+Exercise 2
+----------------------------
+1 - area_of_ring
+2 - When the function is being called
+3 - floats, they are arguments that are added to the function call
+4 - area_of_disk
+5 - When the function is called, it appears twice
+6 - floats, 314.1593 and 78.5398
+7 - After it returns a value, once function is done running
+8 - Global frame
+9 - After the right side is evaluated
+10 - float, 235.6194
+
+==========================================
+
+Exercise 3
+---------------------------------------
+The function results in a TypeError
+
+==========================================
+
+Exercise 4
+-----------------------------------------
+The type is NoneType, and its value is None
+
+========================
+
+Exercise 5
+--------------------------------
+Predictions:	x = 8
+		a = 2
+
+Predictions were correct.
