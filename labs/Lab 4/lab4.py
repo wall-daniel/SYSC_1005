@@ -48,7 +48,7 @@ def recover_image(image):
     new_image = copy(image)
     
     for x, y, (r, g, b) in image:
-        new_color = create_color(r * 30, r * 30, r * 30)
+        new_color = create_color(r * 10, r * 10, r * 10)
         set_color(new_image, x, y, new_color)
         
     return new_image      
