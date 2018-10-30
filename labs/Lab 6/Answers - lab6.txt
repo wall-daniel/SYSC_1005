@@ -1,0 +1,6 @@
+Exercise 0
+
+3 - [0,0], index out of range
+4 - [get_width(),0], index out of range
+5 - [1,0], index out of range
+6 - [0,get_height()], index out of range

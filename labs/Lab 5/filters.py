@@ -47,7 +47,7 @@ def weighted_grayscale(image):
         # shade of gray. These means that the pixel's original colour and the
         # corresponding gray shade will have approximately the same brightness.
         
-        brightness = (r + g + b) // 3
+        brightness = r * 0.299 + g * 0.587 + b * 0.114
         
         # or, brightness = (r + g + b) / 3
         # create_color will convert an argument of type float to an int
@@ -154,4 +154,8 @@ def posterize(img):
 file = choose_file()
 image = load_image(file)
 
+show(grayscale(image))
+show(weighted_grayscale(image))
+show(extreme_contrast(image))
+show(sepia_tint(image))
 show(posterize(image))
