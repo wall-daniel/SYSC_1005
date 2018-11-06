@@ -268,9 +268,9 @@ def detect_edges(image, threshold):
             tr, tg, tb = get_color(image, x, y + 1)
             
             if abs((r + g + b) // 3 - (tr + tg + tb) // 3) > threshold:
-                set_color(new_image, x, y, white)
-            else:
                 set_color(new_image, x, y, black)
+            else:
+                set_color(new_image, x, y, white)
     
     return new_image
 
@@ -291,14 +291,22 @@ def detect_edges_better(image, threshold):
             tr, tg, tb = get_color(image, x, y + 1)
             rr, rg, rb = get_color(image, x + 1, y)
             
-            if abs((r + g + b) // 3 - (tr + tg + tb) // 3) > threshold or abs((r + g + b) // 3 - (rr + rg + rb) // 3) > threshold:
+            contrast_bottom = abs((r + g + b) // 3 - (tr + tg + tb) // 3)
+            contrast_right = abs((r + g + b) // 3 - (rr + rg + rb) // 3)
+            if contrast_bottom > threshold or contrast_right > threshold:
                 set_color(new_image, x, y, white)
             else:
                 set_color(new_image, x, y, black)
     
     return new_image
 
+def flip_image(image):
+    new_image = copy(image)
+    
+    for x, y, colour in image:
+        set_color(new_image, x, get_height(image) - y - 1, colour)
+        
+    return new_image
+
 image = load_image(choose_file())
-show(detect_edges(image, 12))
-show(detect_edges_better(image, 12))
-show(blur(image))
+show(flip_image(image))

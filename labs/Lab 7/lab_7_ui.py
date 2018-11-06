@@ -30,6 +30,7 @@ def main():
     while not done:
         print('\nWhat do you want to do?:')
         print('L)oad image')
+        print('P)review', end=' ')
         print('N)egative', end=' ')
         print('G)rayscale', end=' ')
         print('S)olarize', end=' ')
@@ -37,13 +38,13 @@ def main():
         print('3)-tone')
         print('Q)uit')
         
-        command = input('What do you choose son?:')
+        command = input('Which option bud?:')
         
         if command == 'L' or command == 'l':
             img = get_image()
         elif command == 'Q' or command == 'q':
             done = True        
-        elif command in ['N', 'n', 'G', 'g', 'S', 's', '2', '3']:
+        elif command in ['N', 'n', 'G', 'g', 'S', 's', '2', '3', 'P', 'p']:
             if img != None:
                 if command == 'N' or command == 'n':
                     img = negative(img)
@@ -61,9 +62,11 @@ def main():
                 # Show image after running whatever filter wanted
                 show(img)
             else:
-                print('Can\'t run that without an image loaded, try again m8')
+                print('Can\'t run that without an image loaded, try again man')
         else:
             print('That\'s not a correct command')
+            
+    print('Have a nice day')
 
 
 if __name__ == "__main__":
