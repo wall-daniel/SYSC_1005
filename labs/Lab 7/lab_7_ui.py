@@ -25,21 +25,45 @@ def get_image():
 # A bit of code to demonstrate how to use get_image().
 
 def main():
-    print('What do you want to do?:')
-    print('L)oad image')
-    print('N)egative')
-    print('Q)uit')
-    
-    user = input('What do you choose son?:')
-    
-    if user == 'L' or user == 'l':
-        show(get_image())
-    elif user == 'N' or user == 'n':
-        show(negative(get_image))
-    elif user == 'Q' or user == 'q':
-        print('Quitting the program')
-    else:
-        print('That not right, woops')
+    done = False
+    img = None
+    while not done:
+        print('\nWhat do you want to do?:')
+        print('L)oad image')
+        print('N)egative', end=' ')
+        print('G)rayscale', end=' ')
+        print('S)olarize', end=' ')
+        print('2)-tone', end=' ')
+        print('3)-tone')
+        print('Q)uit')
+        
+        command = input('What do you choose son?:')
+        
+        if command == 'L' or command == 'l':
+            img = get_image()
+        elif command == 'Q' or command == 'q':
+            done = True        
+        elif command in ['N', 'n', 'G', 'g', 'S', 's', '2', '3']:
+            if img != None:
+                if command == 'N' or command == 'n':
+                    img = negative(img)
+                elif command == 'G' or command == 'g':
+                    img = grayscale(img)
+                elif command == 'S' or command == 's':
+                    # Need to get what threshold first
+                    command = input('What threshold to use?: ')
+                    img = solarize(img, int(command))
+                elif command == '2':
+                    img = black_and_white(img)
+                elif command == '3':
+                    img = black_and_white_and_gray(img)
+                
+                # Show image after running whatever filter wanted
+                show(img)
+            else:
+                print('Can\'t run that without an image loaded, try again m8')
+        else:
+            print('That\'s not a correct command')
 
 
 if __name__ == "__main__":
