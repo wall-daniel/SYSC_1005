@@ -11,9 +11,9 @@ def read_points(filename):
     """
     infile = open(filename, 'r')
     
-    points = []
+    points = set()
     for line in infile:
-        points.append((float(line.split()[0]), float(line.split()[1])))
+        points.add((float(line.split()[0]), float(line.split()[1])))
     
     return points
 
@@ -36,14 +36,12 @@ def fit_line_to_points(points):
     # Pos 2 - sum of y coord
     # Pos 3 - sum of xy
     # Pos 4 - sum of xx
-    # Pos 5 - sum of yy
-    sums = [0,0,0,0,0]
+    sums = [0,0,0,0]
     for point in points:
         sums[0] += point[0]
         sums[1] += point[1]
         sums[2] += point[0] * point[1]
         sums[3] += point[0] * point[0]
-        sums[4] += point[1] ** 2
         
     slope = ((sums[0] * sums[1]) - (len(points) * sums[2])) / ((sums[0] * sums[0]) - (len(points) * sums[3]))
     y_intercept = (sums[0] * sums[2] - sums[3] * sums[1]) / (sums[0] * sums[0] - len(points) * sums[3])
@@ -51,6 +49,6 @@ def fit_line_to_points(points):
     return (slope, y_intercept)
 
 if __name__ == "__main__":
-    values = fit_line_to_points(read_points(FILENAME))
+    values = fit_line_to_points(read_points(input("Enter filename: ")))
     
     print('The best line of fit for the points is: y = ' + str(values[0]) + 'x + ' + str(values[1]))
